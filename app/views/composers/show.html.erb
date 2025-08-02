@@ -1,0 +1,57 @@
+<div class="intro">
+  <h5>診断結果</h5>
+  <p>あなたにぴったりの作曲家は…</p>
+</div>
+
+<div class="composer-container">
+  <% case @composer.a_count %>
+  <% when 0, 1 %>
+    <div class = "com_name">
+      <h6>ストラヴィンスキー</h6>
+    </div>
+      <li class="com_image"><img src="/assets/stravinsky.jpg" alt=""></li>
+      <br>
+      <p>革新的で多様なスタイルを持ち、20世紀音楽に大きな影響を与えました。</p>
+  
+  <% when 2 %>
+    <div class = "com_name">
+      <h6>ラヴェル</h6>
+    </div>
+    <p>色彩豊かなオーケストレーションと繊細な感性をもつフランス印象派の名匠。</p>
+  
+  <% when 3 %>
+    <div class = "com_name">
+      <h6>モーツァルト</h6>
+    </div>
+      <p>軽やかさと深さを兼ね備えた古典派の天才。</p>
+
+  <% when 4 %>
+    <div class = "com_name">
+      <h6>ブルックナー</h6>
+    </div>
+      <p>敬虔な信仰心と宇宙的なスケールの音楽を持つ交響曲の巨匠。</p>
+
+  <% when 5 %>
+    <div class = "com_name">
+      <h6>ベートーヴェン</h6>
+    </div>
+      <p>人間の意志と自由を音楽で表現した英雄的作曲家。</p>
+
+  <% when 6 %>
+    <div class = "com_name">
+      <h6>マーラー</h6>
+    </div>
+      <p>壮大な構成と深い心理描写で知られる後期ロマン派の代表格。</p>
+
+  <% when 7 %>
+    <div class = "com_name">
+      <h6>バッハ</h6>
+    </div>
+    <p>音楽理論と芸術性を極限まで高めた、音楽の父。</p>
+
+  <% else %>
+    <h6>診断できませんでした</h6>
+    <p>もう一度お試しください。</p>
+  <% end %>
+</div>
+

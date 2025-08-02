@@ -1,0 +1,120 @@
+.image {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.image p {
+  color: white;
+  font-family: serif;
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  animation: slidein 3s;
+  z-index: 2;
+  text-align: center;
+}
+
+.splide__slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+.intro {
+  text-align: center; 
+  font-size: 40px; 
+  padding-top: 30px;
+}
+.tweets-container {
+  width: 100%;
+  margin: 40px auto;
+  overflow-x: scroll;
+  display: flex;
+  padding: 20px;
+}
+h3 {
+  width: 100px;
+  margin: 30px auto;
+  text-align: center;
+}
+.tweet {
+  flex: 0 0 500px; /* 各ツイートの横幅を固定 */
+  min-width: 500px; /* 最小幅も固定に */
+  max-width: 500px;
+  border: solid 1px #528f6a;
+  /*border-radius: 10px; */
+  padding: 15px;
+  margin: 30px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.main-box {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.time {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.video {
+  margin-top:20px;
+  padding-top: 20px;
+}
+
+.twitter-tweet {
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.left-container iframe {
+  display: block;
+  margin-top: 10px;
+}
+.right-container {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.edit-link, .delete-button {
+  margin-right: 10px;
+}
+
+.delete-button{
+    background-color: #528f6a;
+    color: #214471;
+    width: 100px;
+    height: 40px;
+    padding: 3px;
+    border-radius: 10%;
+    margin-bottom: 1px;
+    font-weight: bold;
+  }
+  .delete-button:hover{
+    background-color: #214471;
+    color: #ffffff;
+    width: 100px;
+    height: 40px;
+    padding: 3px;
+    border-radius: 10%;
+    margin-bottom: 1px;
+    font-weight: bold;
+  }

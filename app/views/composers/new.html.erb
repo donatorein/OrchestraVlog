@@ -1,0 +1,79 @@
+<%= form_for(@composer, class: 'form-horizontal', role: 'form') do |f| %>
+
+    <div class="composer-container">
+        <div class="col-12">
+            <p>Q1. 自分はどちらかと言うと…</p>
+        </div>
+        <div class="col-6">
+            <%= f.radio_button :question1, "1", id: "custom_id1" %>
+            <label for="custom_id1">感情豊かで情熱的</label>
+            <%= f.radio_button :question1, "2", id: "custom_id2" %>
+            <label for="custom_id2">冷静で論理的</label>
+        </div>
+        <br>
+        <div class="col-12">
+            <p>Q2. 音楽で大事なのは?</p>
+        </div> 
+        <div class="col-6">
+            <%= f.radio_button :question2, "1", id: "custom_id3" %>
+            <label for="custom_id1">感動や物語性</label>
+            <%= f.radio_button :question2, "2", id: "custom_id4" %>
+            <label for="custom_id2">技術や構造美</label>
+        </div>   
+        <br>
+        <div class="col-12">
+            <p>Q3. 作業スタイルは?</p>
+        </div>
+        <div class="col-6">
+            <%= f.radio_button :question3, "1", id: "custom_id5" %>
+            <label for="custom_id1">ひらめきや気分を重視する</label>
+            <%= f.radio_button :question3, "2", id: "custom_id6" %>
+            <label for="custom_id2">計画的・論理的に進める</label>
+        </div>  
+        <br>
+        <div class="col-12">
+            <p>Q4. 理想の演奏スタイルは?</p>
+        </div>
+        <div class="col-6">
+            <%= f.radio_button :question4, "1", id: "custom_id7" %>
+            <label for="custom_id1">豪快でエモーショナル</label>
+            <%= f.radio_button :question4, "2", id: "custom_id8" %>
+            <label for="custom_id2">精密で繊細</label>
+        </div>
+        <br>
+        <div class="col-12">
+            <p>Q5. 人生観として近いのは?</p>
+        </div>
+        <div class="col-6">
+            <%= f.radio_button :question5, "1", id: "custom_id9" %>
+            <label for="custom_id1">ドラマチックに行きたい</label>
+            <%= f.radio_button :question5, "2", id: "custom_id10" %>
+            <label for="custom_id2">落ち着いた人生を送りたい</label>
+        </div>
+        <br>
+        <div class="col-12">
+            <p>Q6. 歴史や伝統に対して</p>
+        </div>
+        <div class="col-6">
+            <%= f.radio_button :question6, "1", id: "custom_id11" %>
+            <label for="custom_id1">壊して新しくしたい</label>
+            <%= f.radio_button :question6, "2", id: "custom_id12" %>
+            <label for="custom_id2">尊重しながら発展させたい</label>
+        </div>
+        <br>
+        <div class="col-12">
+            <p>Q7. どちらの環境が落ち着く?</p>
+        </div>
+        <div class="col-6">
+            <%= f.radio_button :question7, "1", id: "custom_id13" %>
+            <label for="custom_id1">自然や外の世界</label>
+            <%= f.radio_button :question7, "2", id: "custom_id14" %>
+            <label for="custom_id2">静かな部屋で一人の時間</label>
+        </div>
+    </div>
+    <div class="sindanbotan">
+        <%= f.submit " 結果 " %>
+    </div>
+<% end %>
+
+

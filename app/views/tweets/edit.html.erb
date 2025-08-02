@@ -1,0 +1,22 @@
+<div class="post-container">
+  <%= form_for @tweet do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, :size => 30 %>
+    <br>
+    <%= f.label :genre %>
+    <%= f.text_field :genre, :size => 30 %>
+    <br>
+    <%= f.label :about %>
+    <br>
+    <%= f.text_area :about, :size => "65x10" %>
+    <br>
+    <br>
+    <%= f.label :video %>
+    <%= f.text_field :video, :size => 140 %>
+    <br>
+    <%= f.label :twitter_url %>
+    <%= f.text_field :twitter_url, size: 140 %>
+    <br>
+    <%= f.submit "編集を保存する" %>
+  <% end %>
+</div>

@@ -1,0 +1,62 @@
+<h3>ブログ詳細</h3>
+<class="tweet">
+  <p style="font-size: 24px; font-weight: bold;"><%= @tweet.title %></p>
+  <p> ジャンル: <%= @tweet.genre %></p>
+  <p><%= simple_format(@tweet.about.to_s) %></p>
+  <% if @tweet.video.present? %>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= find_youtube_url(@tweet.video) %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <% end %>
+  <% if @tweet.twitter_url.present? %>
+    <% tweet_id = find_tweet_id(@tweet.twitter_url) %>
+    <blockquote class="twitter-tweet">
+      <a href="https://twitter.com/i/status/<%= tweet_id %>"></a>
+  </blockquote>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <% else %>
+    <p></p>
+  <% end %>
+  <p><%= @tweet.created_at %></p>
+  <% if user_signed_in? && current_user.id == @tweet.user_id %>
+    <% if current_user.already_liked?(@tweet) %>
+      <%= button_to tweet_like_path(@tweet), method: :delete do %>
+        <i class="fas fa-heart"></i><%= @tweet.likes.count %>
+      <% end %>
+    <% else %>
+      <%= button_to tweet_likes_path(@tweet), method: :post do %>
+        <i class="fas fa-heart"></i><%= @tweet.likes.count %>
+      <% end %>
+    <% end %>
+    <%= link_to "編集する", edit_tweet_path(@tweet.id) %>
+  <% else %>
+    <i class="far fa-heart"></i><%= @tweet.likes.count %>
+  <% end %>
+
+</div>
+
+<h2>いいねしたユーザー</h2>
+<% @tweet.liked_users.each do |user| %>
+  <li><%= user.name %></li>
+<% end %>
+
+<div class="comment-wrapper">
+  <p>コメント一覧</p>
+  <% @comments.each do |c| %>
+    <div>
+      <%= c.user.name unless c.user.blank? %>
+      <br>
+      <%= c.content %>
+    </div>
+      <br>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
+      <%= f.text_area :content %>
+      <%= button_tag type: "submit" do %>
+        <i class="far fa-comments"></i> コメントする
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to "ブログ一覧に戻る", tweets_path %>
