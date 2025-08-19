@@ -1,17 +1,157 @@
+/* 全体的なコンテナ */
+.result-intro {
+  padding: 70px 20px 20px;
+  text-align: center;
+  font-family: "M PLUS 2", sans-serif;
+}
+
+.result-intro h5 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.result-intro p {
+  font-size: 20px;
+  color: #666;
+}
+
 .composer-container {
   margin: 50px auto;
-  width: 50%;
-  border: solid #d6f1d3;
-  border-radius: 10px;
+  width: 90%;
+  max-width: 800px;
+  /* 親要素でフレックスボックスを使い中央寄せ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* アニメーション用 */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 診断結果カードのデザイン */
+.composer-result {
+  width: 100%;
+  border: solid 2px #d3f0f1;
+  border-radius: 15px;
+  background-color: #f8ffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* 角丸に合わせて画像もクリップ */
+  font-family: "M PLUS 2", sans-serif;
+  padding: 30px;
+}
+
+/* ヘッダーセクション */
+.composer-header {
   text-align: center;
-  background-color: #e1f1d3;
+  margin-bottom: 30px;
 }
 
-.com_name {
-    font-size: 50px;
+.composer-name h6 {
+  font-size: 48px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 20px;
 }
 
-.com_image {
-    position: relative;
-    overflow: hidden;
+.composer-image img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover; /* 画像の縦横比を保ちつつコンテナにフィット */
+}
+
+/* 詳細セクション */
+.detail-section {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #34495e;
+  border-bottom: 2px solid #3498db;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.composer-details p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* グラフ画像のコンテナ */
+.chart-image img {
+  max-width: 100%;
+  height: auto;
+  margin: 10px 0;
+}
+
+/* MBTI画像コンテナ */
+.mbti-images {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* 画像間の隙間 */
+  margin-top: 15px;
+}
+
+.mbti-images img {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* おすすめ音楽セクション */
+.recommended-music {
+  text-align: center;
+  padding: 30px 0;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 30px;
+}
+
+.music-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #3498db;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.music-titles {
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+/* YouTube埋め込みのレスポンシブ対応 */
+.youtube-embed {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9のアスペクト比を保持 */
+  height: 0;
+  overflow: hidden;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.youtube-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

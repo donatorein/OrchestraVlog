@@ -1,2 +1,19 @@
-<h1>作曲家診断スタート</h1>
-<%= link_to "診断を始める", new_composer_path, class: "link" %>
+<div class="startdiag">
+  <br>
+  <div class="diagintro1">
+    <div class="diagtext">
+      <h1>作曲家性格診断</h1>
+      あなたの性格に合った作曲家や曲を見つけるための診断を始めましょう。
+      <br><br><br>
+      <h2>あなたにぴったりの作曲家を見つけよう</h2>
+      この診断では、あなたの性格に最も合った作曲家とその代表曲を見つけることができます。質問に答えるだけで、オーケストラ音楽の新たな楽しみ方を発見しましょう。
+    </div>
+    <div class="diagimage">
+      <img src="/assets/comp/cmp.jpg" alt="作曲家診断イメージ">
+    </div>
+  </div>
+  <br>
+  <div class="diagbutton">
+    <%= link_to "作曲家診断スタート", new_composer_path, class: "btnlink" %>
+  </div>
+</div>

@@ -1,3 +1,24 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@100..900&display=swap" rel="stylesheet">
+<!-- Splide CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css">
+<!-- Splide JS -->
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Splide('#image-carousel', {
+      type: 'loop',           // ループさせる
+      autoplay: true,         // 自動再生
+      interval: 3000,         // 3秒ごとに切り替え
+      pauseOnHover: false,    // ホバーしても止めない
+      arrows: false,          // 矢印を非表示
+      pagination: false,      // ページネーションを非表示
+    }).mount();
+  });
+</script>
+
+
 <div class="image">
   <div id="image-carousel" class="splide">
     <div class="splide__track">
@@ -9,84 +30,165 @@
   <p>あなたの知らない<br>オーケストラの世界へ。</p>
 </div>
 
+<div class="sechead">
+  <div class ="sentence1">
+    多様な仲間と共に♬
+  </div>
+  <div class = "sentence2">
+    オーケストラは、音楽を通じて人々を結びつける力があります。言葉を超えたコミュニケーションが可能です。
+    <br>
+    また、世界にはいくつものオーケストラ団体が存在し、それぞれが唯一無二の魅力を持っています。
+  </div>
+  <div class="slideshow">
+  <img class="slideimage" src="assets/gali.jpg" alt="">
+  <img class="slideimage" src="assets/core.jpg" alt="">
+  <img class="slideimage" src="assets/pio.jpg" alt="">
+  <img class="slideimage" src="assets/sch.jpg" alt="">
+  <img class="slideimage" src="assets/sch1.jpg" alt="">
+  </div>
+</div>
+
 <div class="intro">
-  投稿一覧
+  <div class = "intro-sen1">
+    投稿一覧
+  </div>
+  <div class = "intro-sen2">
+    オーケストラは多様な楽器が集まり、豊かな音楽を生み出します。各セクションが調和し、感動的な演奏を実現します。より詳しく知るには、以下からどうぞ。
+  </div>
+
+</div>
+
+<div class="ninki">
+  <h2>人気の投稿（いいね順）</h2>
 </div>
 <div class="tweets-container">
-  <% @tweets.each do |t| %>
+  <% @top_liked_tweets.each do |t| %>
     <div class="tweet">
       <div class="main-box">
         <div class="left-container">
-          <p style="font-size: 24px; font-weight: bold;"><%= link_to t.title, tweet_path(t.id) %></p>
-          <%= image_tag t.user.image_url, size: "25x25" if t.user.image? %>
-          <%= link_to t.user.name, user_path(t.user_id) %>
+          <%= link_to t.title, tweet_path(t.id), class: "t-title" %>
+    
+          <div class="user-info">
+            <div class="t-image">
+              <%= image_tag t.user.image_url, size: "24x24" if t.user.image? %>
+            </div>
+            <%= link_to t.user.name, user_path(t.user_id), class: "t-name" %>
+          </div>
+    
           <br>
           <%= t.genre %>
-            <% if t.video.blank? && t.twitter_url.blank? %>
-              <% about_text = t.about.to_s %>
-              <%= simple_format(about_text.length > 150 ? "#{about_text[0...150]}..." : about_text) %>
-            <% else %>
-              <% about_text = t.about.to_s %>
-              <%= simple_format(about_text.length > 40 ? "#{about_text[0...40]}..." : about_text) %>
-            <% end %>
+          <% about_text = t.about.to_s %>
+          <%= simple_format((t.video.blank? && t.twitter_url.blank?) ? (about_text.length > 150 ? "#{about_text[0...150]}..." : about_text) : (about_text.length > 40 ? "#{about_text[0...40]}..." : about_text)) %>
         </div>
 
         <% if user_signed_in? %>
-            <% if current_user.already_liked?(t) %>
-                <%= button_to tweet_like_path(id: t.id, tweet_id: t.id), method: :delete do %>
-                    <i class="fas fa-heart"></i><%= t.likes.count %>
-                <% end %>
-            <% else %>
-                <%= button_to tweet_likes_path(id: t.id, tweet_id: t.id), method: :post do %>
-                    <i class="fas fa-heart"></i><%= t.likes.count %>
-                <% end %>
+          <% if current_user.already_liked?(t) %>
+            <%= button_to tweet_like_path(id: t.id, tweet_id: t.id), method: :delete do %>
+              <i class="fas fa-heart"></i><%= t.likes.count %>
             <% end %>
+          <% else %>
+            <%= button_to tweet_likes_path(id: t.id, tweet_id: t.id), method: :post do %>
+              <i class="fas fa-heart"></i><%= t.likes.count %>
+            <% end %>
+          <% end %>
         <% else %>
           <i class="fas fa-heart"></i><%= t.likes.count %>
         <% end %>
+      </div>
 
-      </div>  
+      <div class="titleimage">
+        <% if t.image.present? %>
+          <%= image_tag t.image_url, size: "500x400" if t.image? %>
+        <% else %>
+          <p> </p>
+        <% end %>
+      </div>
 
-        <br>
-          <div class = "video">
-            <% if t.video.present? %>
-              <iframe width="450" height="300" src="https://www.youtube.com/embed/<%= find_youtube_url(t.video) %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <% else %>
-              <p> </p>
-            <% end %>
-          </div>
-        <br>
+      <div class="right-container">
+        <% if user_signed_in? && current_user.id == t.user_id %>
+          <%= link_to "編集する", edit_tweet_path(t.id), class: "btnlink" %>
+          <%= link_to "削除する", tweet_path(t.id), method: :delete, class: "btnlink" %>
+        <% end %>
+      </div>
 
-        <% if t.twitter_url.present? %>
-          <% tweet_id = find_tweet_id(t.twitter_url) %>
-          <blockquote class="twitter-tweet">
-              <a href="https://twitter.com/i/status/<%= tweet_id %>"></a>
-          </blockquote>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          <% else %>
-            <p> </p>
-          <% end %>
-        
-        <div class="right-container">
-          <% if user_signed_in? && current_user.id == t.user_id %>
-            <%= link_to "編集する", edit_tweet_path(t.id) %>
-            
-            <%= button_to "削除する", tweet_path(t.id), method: :delete, class: "delete-button"%>
-            
-            </div>
-        <p class="time"><%= t.created_at %></p>
-    <% end %> 
+      <p class="time"><%= t.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
     </div>
   <% end %>
 </div>
 
-<div class="image">
-  <div id="image-carousel" class="splide">
-    <div class="splide__track">
-      <ul class="splide__list">
-        <li class="splide__slide"><img src="/assets/concert.jpg" alt=""></li>
-      </ul>
+<div class="ninki">
+  <h2>新着投稿</h2>
+</div>
+  <div class="tweets-container">
+  <% @recent_tweets.each do |t| %>
+    <div class="tweet">
+      <div class="main-box">
+        <div class="left-container">
+          <%= link_to t.title, tweet_path(t.id), class: "t-title" %>
+          <div class="t-image">
+            <%= image_tag t.user.image_url, size: "25x25" if t.user.image? %>
+          </div>
+          <%= link_to t.user.name, user_path(t.user_id), class: "t-name" %>
+          <br>
+          <%= t.genre %>
+          <% about_text = t.about.to_s %>
+          <%= simple_format((t.video.blank? && t.twitter_url.blank?) ? (about_text.length > 150 ? "#{about_text[0...150]}..." : about_text) : (about_text.length > 40 ? "#{about_text[0...40]}..." : about_text)) %>
+        </div>
+
+        <% if user_signed_in? %>
+          <% if current_user.already_liked?(t) %>
+            <%= button_to tweet_like_path(id: t.id, tweet_id: t.id), method: :delete do %>
+              <i class="fas fa-heart"></i><%= t.likes.count %>
+            <% end %>
+          <% else %>
+            <%= button_to tweet_likes_path(id: t.id, tweet_id: t.id), method: :post do %>
+              <i class="fas fa-heart"></i><%= t.likes.count %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <i class="fas fa-heart"></i><%= t.likes.count %>
+        <% end %>
+      </div>
+
+      <div class="titleimage">
+        <% if t.image.present? %>
+          <%= image_tag t.image_url, size: "500x400" if t.image? %>
+        <% else %>
+          <p> </p>
+        <% end %>
+      </div>
+
+      <div class="right-container">
+        <% if user_signed_in? && current_user.id == t.user_id %>
+          <%= link_to "編集する", edit_tweet_path(t.id), class: "btnlink" %>
+          <%= link_to "削除する", tweet_path(t.id), method: :delete, class: "btnlink" %>
+        <% end %>
+      </div>
+
+      <p class="time"><%= t.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
     </div>
-  </div>
+  <% end %>
+</div>
+<div class="image2">
+  <img src="/assets/concert.jpg" alt="">
   <p>Schnitzel Philharmonic Orchestra</p>
+</div>
+<div class = "sch">
+  <div class = "sch-1">
+    オーケストラの魅力を<br>お届けします
+  </div>
+  <br>
+  <div class = "sch-2">
+    オーケストラの最新情報やイベントをお楽しみください
+    <br>
+    シュニッツェルフィルハーモニー管弦楽団
+    <br>
+    <a href="https://schnitzelphil.com/" target="_blank">
+    Schnitzel Philharmonic Orchestra 公式サイト
+    </a>
+  </div>
+  <br>
+  <div class = "sch-3">
+    <img src="/assets/logo.png" alt="">
+  </div>
 </div>

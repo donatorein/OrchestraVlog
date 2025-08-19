@@ -1,0 +1,175 @@
+/* 全体コンテナ */
+.mypage-container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-family: "M PLUS 2", sans-serif;
+}
+
+/* カード共通スタイル */
+.user-profile-card,
+.user-posts-card,
+.user-likes-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 40px;
+  border: 1px solid #eee;
+}
+
+/* プロフィールカード */
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #528f6a;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.profile-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+}
+
+.profile-actions {
+  /* スタイルがあればここに記述 */
+}
+
+.edit-profile-btn {
+  background-color: #528f6a;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.edit-profile-btn:hover {
+  background-color: #3f6e52;
+}
+
+/* プロフィール情報 */
+.user-info-row,
+.organization-info-row {
+  display: flex; /* Flexboxを有効にする */
+  align-items: center; /* 垂直方向の中央揃え */
+  gap: 10px; /* 要素間の余白 */
+  margin-bottom: 10px; /* 下方向への余白 */
+  
+  /* 以下のプロパティを追加 */
+  justify-content: flex-start; /* 要素を左端から配置 */
+  flex-direction: row-reverse; /* 要素の並び順を逆にする（右から左へ） */
+  width: fit-content; /* コンテナの幅を子要素に合わせて調整 */
+}
+
+/* ユーザー名と画像 */
+.user-name {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+.user-image {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* 団体名とアイコン */
+.organization-name {
+  font-size: 18px;
+  font-weight: 500;
+  color: #555;
+}
+
+.organization-icon {
+  /* アイコンのスタイルがあればここに記述 */
+}
+
+.user-email,
+.user-bio {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* 投稿・いいね一覧カード */
+.section-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.post-list,
+.liked-post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-item,
+.liked-post-item {
+  border-bottom: 1px dashed #ddd;
+  padding: 15px 0;
+}
+
+.post-item:last-child,
+.liked-post-item:last-child {
+  border-bottom: none;
+}
+
+.post-link,
+.liked-post-title {
+  font-size: 18px;
+  color: #214471;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.post-link:hover,
+.liked-post-title:hover {
+  color: #528f6a;
+  text-decoration: underline;
+}
+
+/* いいねした投稿のユーザー情報 */
+.liked-post-item .post-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.liked-user-image {
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.liked-user-name {
+  font-weight: bold;
+  color: #555;
+  font-size: 16px;
+}
+
+/* 戻るリンク */
+.back-link {
+  display: block;
+  width: fit-content;
+  margin: 30px auto;
+  padding: 12px 24px;
+  background-color: #f0f0f0;
+  color: #333;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.back-link:hover {
+  background-color: #e0e0e0;
+}

@@ -1,4 +1,4 @@
-<div class="intro">
+<div class="result-intro">
   <h5>診断結果</h5>
   <p>あなたにぴったりの作曲家は…</p>
 </div>
@@ -6,52 +6,439 @@
 <div class="composer-container">
   <% case @composer.a_count %>
   <% when 0, 1 %>
-    <div class = "com_name">
-      <h6>ストラヴィンスキー</h6>
+  <div class="composer-result">
+    <div class="composer-header">
+      <div class="composer-name">
+        <h6>ストラヴィンスキー</h6>
+      </div>
+      <div class="composer-image">
+        <img src="/assets/stravinsky.jpg" alt="ストラヴィンスキーの画像">
+      </div>
     </div>
-      <li class="com_image"><img src="/assets/stravinsky.jpg" alt=""></li>
-      <br>
-      <p>革新的で多様なスタイルを持ち、20世紀音楽に大きな影響を与えました。</p>
+    
+    <div class="composer-details">
+      <div class="detail-section">
+        <p class="section-title">作曲家について</p>
+        <p>革新的で多様なスタイルを持ち、20世紀音楽に大きな影響を与えました。</p>
+      </div>
+
+      <div class="detail-section">
+        <p class="section-title">ストラヴィンスキーの性格的傾向</p>
+        <div class="chart-image">
+          <img src="/assets/comp/stra-chart.png" alt="性格チャート">
+        </div>
+        <p>創造性および構造志向が著しく高い一方、その構造の複雑さから感情の読み取りは単純ではなくなっています。</p>
+      </div>
+      
+      <div class="detail-section">
+        <p class="section-title">MBTI: ENTJ(指揮官) / INTP(論理学者)</p>
+        <div class="mbti-images">
+          <img src="/assets/comp/entj.jpg" alt="ENTJ">
+          <img src="/assets/comp/intp.jpg" alt="INTP">
+        </div>
+      </div>
+    </div>
+    
+    <div class="recommended-music">
+      <p class="section-title">あなたにおすすめの音楽</p>
+      <div class="music-titles">
+        <p class="music-title">春の祭典</p>
+        バレエ音楽として有名であり、その複雑さに中毒性があります。
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/EkwqPJZe8ms?si=lM78VP_utlGQ2Oav" title="YouTube video player 1" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="music-titles">
+        <p class="music-title">火の鳥</p>
+        こちらもバレエ音楽ですが、その情熱と雄大さは唯一無二です。
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/wKtpRoYgQUM?start=611" title="YouTube video player 2" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="music-titles">
+        <p class="music-title">ペトルーシュカ</p>
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/esD90diWZds?si=SsxTFIugDWsKnmOt" title="YouTube video player 3" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
   
   <% when 2 %>
-    <div class = "com_name">
-      <h6>ラヴェル</h6>
+  <div class="composer-result">
+    <div class="composer-header">
+      <div class="composer-name">
+        <h6>ラヴェル</h6>
+      </div>
+      <div class="composer-image">
+        <img src="/assets/comp/rave.jpg" alt="ラヴェルの画像">
+      </div>
     </div>
-    <p>色彩豊かなオーケストレーションと繊細な感性をもつフランス印象派の名匠。</p>
-  
+    <div class="composer-details">
+      <div class="detail-section">
+        <p class="section-title">作曲家について</p>
+        <p>色彩豊かなオーケストレーションと繊細な感性をもつフランス印象派の名匠。</p>
+      </div>
+      <div class="detail-section">
+        <p class="section-title">ラヴェルの性格的傾向</p>
+        <div class="chart-image">
+          <img src="/assets/comp/rave-chart.png" alt="性格チャート">
+        </div>
+        <p>感情の高まりというよりも、クリエイティブな情景描写による美しさを存分に味わうことができます。</p>
+      </div>
+      <div class="detail-section">
+        <p class="section-title">MBTI: INTJ(建築家) / INTP(論理学者)</p>
+        <div class="mbti-images">
+          <img src="/assets/comp/intj.jpg" alt="INTJ">
+          <img src="/assets/comp/intp.jpg" alt="INTP">
+        </div>
+      </div>
+    </div>
+    <div class="recommended-music">
+      <p class="section-title">あなたにおすすめの音楽</p>
+      <div class="music-titles">
+        <p class="music-title">亡き王女のためのパヴァーヌ</p>
+        ピアノ曲が元となっており、しみじみとした気持ちを味わうことができます。
+        吹奏楽版でどうぞ。
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/Z-HgWeflv_Q?si=oUctYM0BP-GseGVQ" title="YouTube video player 1" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="music-titles">
+        <p class="music-title">ボレロ</p>
+        フィギュアスケートのOPでも取り上げられる曲です。徐々に盛り上がっていきます。
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/cmNEvSFWftc?si=3ebYqPEdoIs0DiEa" title="YouTube video player 2" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="music-titles">
+        <p class="music-title">ラ・ヴァルス</p>
+        踊り狂ったようなロマンチックさを感じることができます。
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/UlMJ6Ri-LMM?si=xLbucYVOm68qvbqt" title="YouTube video player 3" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <% when 3 %>
-    <div class = "com_name">
-      <h6>モーツァルト</h6>
+  <div class="composer-result">
+    <div class="composer-header">
+      <div class="composer-name">
+        <h6>モーツァルト</h6>
+      </div>
+      <div class="composer-image">
+        <img src="/assets/comp/morz.jpg" alt="モーツァルトの画像">
+      </div>
     </div>
-      <p>軽やかさと深さを兼ね備えた古典派の天才。</p>
+    <div class="composer-details">
+      <div class="detail-section">
+        <p class="section-title">作曲家について</p>
+        <p>軽やかさと深さを兼ね備えた古典派の天才。</p>
+      </div>
+      <div class="detail-section">
+        <p class="section-title">モーツァルトの性格的傾向</p>
+        <div class="chart-image">
+          <img src="/assets/comp/morz-chart.png" alt="性格チャート">
+        </div>
+        <p>古典派の形式美と感情表現を両立させ、軽快な中に深い情念を秘めています。</p>
+      </div>
+      <div class="detail-section">
+        <p class="section-title">MBTI: ENFP(広報運動家) / ESFP(エンターテイナー)</p>
+        <div class="mbti-images">
+          <img src="/assets/comp/enfp.jpg" alt="ENFP">
+          <img src="/assets/comp/esfp.jpg" alt="ESFP">
+        </div>
+      </div>
+    </div>
+    <div class="recommended-music">
+      <p class="section-title">あなたにおすすめの音楽</p>
+      <div class="music-titles">
+        <p class="music-title">レクイエム</p>
+        モーツァルト最後の作品であり、合唱とともに天に昇るような音色を味わえます。
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/qllREi8QMp4?si=pEDmnD0HEATMgdR1" title="YouTube video player 1" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="music-titles">
+        <p class="music-title">アイネ・クライネ・ナハトムジーク</p>
+        弦楽アンサンブルの曲で、非常に親しみやすい美しさがあります。
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/DkNtFKG5FwU?si=4Tw5RKPNBVXDF7CS" title="YouTube video player 2" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="music-titles">
+        <p class="music-title">ピアノ協奏曲第21番</p>
+        スウェーデン映画でも使われたことがあり、明るく清らかなところが魅力です。
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/8tx7ImWWg74?si=qG82C_0_mUtBFNgm" title="YouTube video player 3" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <% when 4 %>
-    <div class = "com_name">
-      <h6>ブルックナー</h6>
+  <div class="composer-result">
+    <div class="composer-header">
+      <div class="composer-name">
+        <h6>ブルックナー</h6>
+      </div>
+      <div class="composer-image">
+        <img src="/assets/comp/bruc.jpg" alt="ブルックナーの画像">
+      </div>
     </div>
-      <p>敬虔な信仰心と宇宙的なスケールの音楽を持つ交響曲の巨匠。</p>
+    <div class="composer-details">
+      <div class="detail-section">
+        <p class="section-title">作曲家について</p>
+        <p>敬虔な信仰心と宇宙的なスケールの音楽を持つ交響曲の巨匠。</p>
+      </div>
+      <div class="detail-section">
+        <p class="section-title">ブルックナーの性格的傾向</p>
+        <div class="chart-image">
+          <img src="/assets/comp/bruc-chart.png" alt="性格チャート">
+        </div>
+        <p>巨大な建築物のような構造を持ち、精神的な探求と広大な音響空間を表現します。</p>
+      </div>
+      <div class="detail-section">
+        <p class="section-title">MBTI: ISFJ(擁護者) / INFJ(提唱者)</p>
+        <div class="mbti-images">
+          <img src="/assets/comp/isfj.jpg" alt="ISFJ">
+          <img src="/assets/comp/infj.jpg" alt="INFJ">
+        </div>
+      </div>
+    </div>
+    <div class="recommended-music">
+      <p class="section-title">あなたにおすすめの音楽</p>
+      <div class="music-titles">
+        <p class="music-title">交響曲第7番</p>
+        ブルックナーの曲の導入にぴったりであり、弦楽器の細かい刻みとともに<br>美しい
+        メロディーが広がっていきます。
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/dSGOaTuAesY?si=YIJpPgBkArwspyQC" title="YouTube video player 1" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="music-titles">
+        <p class="music-title">交響曲第4番「ロマンティック」</p>
+        もっとも有名なブルックナーの交響曲であり、もっともポジティブです。
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/JCxdHIEHELE?si=mbHk8w8NoMBsTyzJ" title="YouTube video player 2" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="music-titles">
+        <p class="music-title">交響曲第9番</p>
+        ブルックナー最後の交響曲であり、その重厚さは唯一無二です。
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/fkZk9kk3sZk?si=xzukYrbSVN6cMH_p" title="YouTube video player 3" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <% when 5 %>
-    <div class = "com_name">
-      <h6>ベートーヴェン</h6>
+  <div class="composer-result">
+    <div class="composer-header">
+      <div class="composer-name">
+        <h6>ベートーヴェン</h6>
+      </div>
+      <div class="composer-image">
+        <img src="/assets/comp/beet.jpg" alt="ベートーヴェンの画像">
+      </div>
     </div>
-      <p>人間の意志と自由を音楽で表現した英雄的作曲家。</p>
+    <div class="composer-details">
+      <div class="detail-section">
+        <p class="section-title">作曲家について</p>
+        <p>人間の意志と自由を音楽で表現した英雄的作曲家。</p>
+      </div>
+      <div class="detail-section">
+        <p class="section-title">ベートーヴェンの性格的傾向</p>
+        <div class="chart-image">
+          <img src="/assets/comp/beet-chart.png" alt="性格チャート">
+        </div>
+        <p>感情の起伏が激しく、形式の枠を超えた強靭な精神性を感じさせます。</p>
+      </div>
+      <div class="detail-section">
+        <p class="section-title">MBTI: ENTJ(指揮官) / INFJ(提唱者)</p>
+        <div class="mbti-images">
+          <img src="/assets/comp/entj.jpg" alt="ENTJ">
+          <img src="/assets/comp/infj.jpg" alt="INFJ">
+        </div>
+      </div>
+    </div>
+    <div class="recommended-music">
+      <p class="section-title">あなたにおすすめの音楽</p>
+      <div class="music-titles">
+        <p class="music-title">交響曲第9番</p>
+        合唱と共に、ベートーヴェンならではの重厚さを最も味わうことができる傑作です。
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/gT91esZK90I?si=9dKoojPLav2OXQFr&amp;start=2549" title="YouTube video player 1" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="music-titles">
+        <p class="music-title">交響曲第5番「運命」</p>
+        有名なフレーズ「デデデデーン」とはこの曲のこと。<br>苦悩との戦いの先にある勝利、30分間で存分に味わえます。
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/Mua_84uAOG8?si=SH0JEnE5ycPWOrEx" title="YouTube video player 2" frameborder="0" allowfullscreen></iframe>
+        </div>
+      <div>
+      <div class="music-titles">
+        <p class="music-title">交響曲第7番</p>
+        躍動感あふれるリズムが特徴的で、かなり親しみやすいです。
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/fWGCB81TFPQ?si=doSOCCAOH4Xlowpy" title="YouTube video player 3" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <% when 6 %>
-    <div class = "com_name">
-      <h6>マーラー</h6>
+  <div class="composer-result">
+    <div class="composer-header">
+      <div class="composer-name">
+        <h6>マーラー</h6>
+      </div>
+      <div class="composer-image">
+        <img src="/assets/comp/mahl.jpg" alt="マーラーの画像">
+      </div>
     </div>
-      <p>壮大な構成と深い心理描写で知られる後期ロマン派の代表格。</p>
+    <div class="composer-details">
+      <div class="detail-section">
+        <p class="section-title">作曲家について</p>
+        <p>壮大な構成と深い心理描写で知られる後期ロマン派の代表格。</p>
+      </div>
+      <div class="detail-section">
+        <p class="section-title">マーラーの性格的傾向</p>
+        <div class="chart-image">
+          <img src="/assets/comp/mahl-chart.png" alt="性格チャート">
+        </div>
+        <p>人生の苦悩や葛藤、自然への畏敬を壮大なスケールで表現する、内省的で多面的な音楽です。</p>
+      </div>
+      <div class="detail-section">
+        <p class="section-title">MBTI: ENFJ(主人公) / INFJ(提唱者)</p>
+        <div class="mbti-images">
+          <img src="/assets/comp/enfj.jpg" alt="ENFJ">
+          <img src="/assets/comp/infj.jpg" alt="INFJ">
+        </div>
+      </div>
+    </div>
+    <div class="recommended-music">
+      <p class="section-title">あなたにおすすめの音楽</p>
+      <div class="music-titles">
+        <p class="music-title">交響曲第1番</p>
+        それぞれの楽章(1~4)すべてが色濃く人気があります。<br>
+        第3楽章は、グーチョキパーの歌のもととなったフランス民謡からメロディーをとっています。
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/cqVIMEQfEd4?si=A4GgtfIOHpHscA3x" title="YouTube video player 1" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="music-titles">
+        <p class="music-title">交響曲第5番</p>
+        ゆったりとした第4楽章は、愛する妻へのラブレターとして書かれました。<br>
+        その美しさは聴くと一瞬で虜にされます。
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/qiVERyQXN1A?si=rwRHykQOU41RCDfQ&amp;start=2602" title="YouTube video player 2" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="music-titles">
+        <p class="music-title">交響曲第6番</p>
+        なんとこの曲ではハンマーが使われます。繰り広げられる雄大な世界を感じることができます。
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/BtqdNYCn0_0?si=slQR-Bh_8O_9sLt-&amp;start=2602" title="YouTube video player 3" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <% when 7 %>
-    <div class = "com_name">
-      <h6>バッハ</h6>
+  <div class="composer-result">
+    <div class="composer-header">
+      <div class="composer-name">
+        <h6>バッハ</h6>
+      </div>
+      <div class="composer-image">
+        <img src="/assets/comp/bach.jpg" alt="バッハの画像">
+      </div>
     </div>
-    <p>音楽理論と芸術性を極限まで高めた、音楽の父。</p>
+    <div class="composer-details">
+      <div class="detail-section">
+        <p class="section-title">作曲家について</p>
+        <p>音楽理論と芸術性を極限まで高めた、音楽の父。</p>
+      </div>
+      <div class="detail-section">
+        <p class="section-title">バッハの性格的傾向</p>
+        <div class="chart-image">
+          <img src="/assets/comp/bach-chart.png" alt="性格チャート">
+        </div>
+        <p>緻密な論理と数学的な美しさ、そして深い精神性が融合した、完全なる音楽世界を構築しています。</p>
+      </div>
+      <div class="detail-section">
+        <p class="section-title">MBTI: ISTJ(管理者) / INTJ(建築家)</p>
+        <div class="mbti-images">
+          <img src="/assets/comp/istj.jpg" alt="ISTJ">
+          <img src="/assets/comp/intj.jpg" alt="INTJ">
+        </div>
+      </div>
+    </div>
+    <di class="recommended-music">
+      <p class="section-title">あなたにおすすめの音楽</p>
+      <div class="music-titles">
+        <p class="music-title">管弦楽組曲</p>
+        当時の様々な舞曲や宮廷音楽の集大成を示す、バリエーション豊かな4つの曲が紹介されています。
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/99o45efSemo?si=Gkfo3D6qYdm_iCiv&amp;start=2602" title="YouTube video player 1" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="music-titles">
+        <p class="music-title">ブランデンブルク協奏曲</p>
+        躍動感がありドラマティックなバロックというジャンルを存分に味わうことができます。
+      </div>
+      <div class="youtube-videos">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/NWEHKTyaVc0?si=fdQD2du0DVK7_jLd&amp;start=2602" title="YouTube video player 2" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <% else %>
-    <h6>診断できませんでした</h6>
-    <p>もう一度お試しください。</p>
+  <h6>診断できませんでした</h6>
+  <p>もう一度お試しください。</p>
   <% end %>
 </div>
-

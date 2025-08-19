@@ -2,10 +2,14 @@
 
 <div class="post-container">
     <p class="title">投稿フォーム</p>
+    オーケストラにまつわる記事を投稿することで、<br>楽しさを共有しましょう。
     <%= form_for(@tweet, :url => { controller:'tweets', action:'create'})do |f| %>
     <br>
     <%= f.label :title %>
     <%= f.text_field :title, :size => 30 %>
+    <br>
+    <%= f.label :titleimage %>
+    <%= f.file_field :image, :size => 30 %>
     <br>
     <%= f.label :genre %>
     <%= f.text_field :genre, :size => 30 %>
@@ -21,8 +25,10 @@
     <%= f.label :twitter_url %>
     <%= f.text_field :twitter_url, size: 140 %>
     <br>
-    <%= f.submit "送信"%>
+    <div class="actions">
+        <%= f.submit "送信"%>
     <br>
+    </div>
     <% end %>
     <%= link_to "一覧に戻る", tweets_path %>
 </div>

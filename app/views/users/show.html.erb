@@ -1,29 +1,48 @@
-<h1>My page</h1>
-<p><%= @user.name %></p>
-<p>メールアドレス : <%= @user.email %></p>
-<p><%= @user.profile %></p>
+<div class="mypage-container">
+  <div class="user-profile-card">
+    <div class="profile-header">
+      <h1 class="profile-title">My page</h1>
+      <div class="profile-actions">
+        <% if user_signed_in? && current_user.id == @user.id %>
+          <%= link_to "編集する", edit_user_registration_path, class: "edit-profile-btn" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="profile-details">
+      <p class="user-name"><%= @user.name %></p>
+      <%= image_tag @user.image_url, size: "50x50", class: "user-image" if @user.image? %>
+      <p class="user-email">メールアドレス: <%= @user.email %></p>
+      <p class="user-bio"><%= @user.profile %></p>
+    </div>
+  </div>
 
-<% if current_user.id == @user.id %>
-  <%= link_to "編集する", edit_user_registration_path %>
-<% end %>
+  <div class="user-posts-card">
+    <h2 class="section-title">ユーザーの投稿一覧</h2>
+    <ul class="post-list">
+      <% @user.tweets.each do |t| %>
+        <li class="post-item">
+          <%= link_to t.title, tweet_path(t.id), class: "post-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
-<h2>ユーザーの投稿一覧</h2>
-<% @user.tweets.each do |t| %>
-  <%= t.title %>
-  <%= link_to "詳細へ", tweet_path(t.id) %>
-  <br>
-<% end %>
+  <div class="user-likes-card">
+    <h2 class="section-title">ユーザーがいいねした投稿一覧</h2>
+    <ul class="liked-post-list">
+      <% @user.liked_tweets.each do |t| %>
+        <li class="liked-post-item">
+          <div class="post-info">
+            <% if t.user.image? %>
+              <%= image_tag t.user.image_url, size: '25x25', class: "liked-user-image" %>
+            <% end %>
+            <span class="liked-user-name"><%= t.user.name %></span>
+          </div>
+          <%= link_to t.title, tweet_path(t.id), class: "liked-post-title" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 
-<!-- 以下はいいね機能を実装している場合-->
-<h2>ユーザーがいいねした投稿一覧</h2>
-<% @user.liked_tweets.each do |t| %>
-  <%= t.user.name %>
-  <% if @user.image? %>
-       <%= image_tag  @user.image_url, size: '25x25'%>
-  <% end %>
-  <%= t.title %>
-  <br>
-<% end %>
-<!-- ここまで-->
-
-<%= link_to "ブログ一覧に戻る", tweets_path %>
+<%= link_to "ブログ一覧に戻る", tweets_path, class: "back-link" %>

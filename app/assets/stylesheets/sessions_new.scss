@@ -1,0 +1,29 @@
+.login {
+    text-align: center;
+    padding: 50px;
+    font-family: "M PLUS 2", sans-serif;
+}
+
+.field {
+  margin-bottom: 20px;
+  justify-self: center;
+}
+
+.actions input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #528f6a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px gray;
+  cursor: pointer;
+}
+
+.actions input[type="submit"]:hover {
+  background-color: #223e2d;
+}
+.actions {
+    justify-self: center;
+    text-align: center;
+    font-family: "M PLUS 2", sans-serif;
+}

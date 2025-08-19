@@ -1,0 +1,175 @@
+.show-head {
+  position: relative;
+  padding-bottom: 50px;
+}
+
+.show-head .centered-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  animation: fadeUp 1s ease-out forwards;
+  font-family: "M PLUS 2", sans-serif;
+}
+
+.splide__slide2 {
+  display: flex; /* Flexboxを適用 */
+  justify-content: center; /* 水平方向の中央寄せ */
+  align-items: center; /* 垂直方向の中央寄せ（必要に応じて） */
+}
+
+.splide__slide2 img {
+  width: 1000px;
+  max-width: 100%; /* 画面幅が1000pxより小さいときに画像の幅を縮小 */
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
+  justify-content: center;
+
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* ベースとなるブログ本文のスタイル */
+.vlogbody {
+    padding: 50px;
+    /* 本文と見出しのフォントを分けて、メリハリをつけます */
+    font-family: "M PLUS 2", sans-serif;
+    font-size: 18px; /* フォントサイズを調整して読みやすくします */
+    line-height: 1.8; /* 行の高さを設定して読みやすくします */
+    color: #333; /* 文字色を少し濃くして視認性を高めます */
+    background-color: #f9f9f9; /* わずかに灰色がかった背景色を追加して、白い背景から区別します */
+    border-radius: 10px; /* 角を丸くして柔らかい印象に */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* ほんの少し影をつけて立体感を */
+}
+/* リンクやボタンのスタイル調整 */
+.vlogbody a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.vlogbody a:hover {
+    color: #0056b3;
+}
+/* ハッシュタグのスタイルを調整 */
+.vlogbody p:first-of-type {
+    font-size: 16px;
+    font-weight: bold;
+    color: #888;
+    margin-bottom: 20px;
+}
+/* YouTube埋め込みのレスポンシブ対応 */
+.vlogbody iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 30px auto; /* 中央寄せと余白 */
+    border-radius: 8px; /* 角を丸く */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.youtube-container {
+  position: relative; /* 子要素（iframe）を配置するための基準に */
+  width: 100%; /* 親要素の幅いっぱいに広げる */
+  padding-top: 56.25%; /* 16:9のアスペクト比を保つための魔法の数字 */
+  height: 0; /* 高さを0にすることで、paddingのみで高さを確保 */
+}
+
+.youtube-container iframe {
+  position: absolute; /* 親要素に対して絶対位置指定 */
+  top: 0;
+  left: 0;
+  width: 100%; /* 親要素の幅いっぱいに広げる */
+  height: 100%; /* 親要素の高さいっぱいに広げる */
+}
+
+.iine {
+    padding: 30px 0;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    font-family: "M PLUS 2", sans-serif;
+    text-align: center;
+}
+.iine h2 {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 15px;
+}
+.iine li {
+    font-size: 16px;
+    color: #666;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+/* コメントセクションのスタイル */
+.comment-wrapper {
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+    font-family: "M PLUS 2", sans-serif;
+}
+
+.comment-wrapper p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.btnlink2 {
+  background: #eee;
+  border-radius: 9999px;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px auto;
+  max-width: 300px;
+  padding: 10px 25px;
+  font-family: "Noto Sans Japanese";
+  text-decoration: none;
+  color: #333;
+  line-height: 1.8;
+  transition: 0.3s ease-in-out;
+  font-weight: 500;
+  margin-top: 50px;
+}
+
+.btnlink2::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  bottom: 0;
+  right: 2rem;
+  font-size: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: right 0.3s;
+  width: 6px;
+  height: 6px;
+  border-top: solid 2px currentColor;
+  border-right: solid 2px currentColor;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.btnlink2:hover {
+  background: #333;
+  color: #FFF;
+}
+
+.btnlink2:hover::after {
+  right: 1.4rem;
+}

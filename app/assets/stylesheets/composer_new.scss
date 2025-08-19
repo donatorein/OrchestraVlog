@@ -1,0 +1,88 @@
+/* フォーム全体のコンテナ */
+.composer-container {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #f8f8f8;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  font-family: "M PLUS 2", sans-serif;
+  display: flex;
+  flex-direction: column; /* 子要素（質問グループ）を縦に並べる */
+  gap: 30px; /* 質問グループ間の余白を設定 */
+}
+
+/* 質問と選択肢のグループ */
+.composer-question-group {
+  margin-bottom: 30px;
+}
+
+.composer-question p {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.composer-options {
+  /* 質問と選択肢を縦並びにするための変更 */
+  display: flex;
+  flex-direction: column; /* ここをrowからcolumnに変更 */
+  gap: 15px; /* 縦方向の余白を調整 */
+}
+
+/* ラジオボタン（チェックボックス）のスタイル */
+.composer-radio {
+  display: none; /* ラジオボタン自体を非表示に */
+}
+
+.composer-label {
+  display: block; /* ブロック要素にして縦並びを確保 */
+  padding: 15px 30px;
+  border: 2px solid #528f6a;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #528f6a;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+/* ラジオボタンが選択されたときのラベルのスタイル */
+.composer-radio:checked + .composer-label {
+  background-color: #528f6a;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(82, 143, 106, 0.4);
+}
+
+/* ホバー時のスタイル */
+.composer-label:hover {
+  background-color: #99d8a7;
+  color: #fff;
+}
+
+/* 送信ボタンのスタイル */
+.composer-submit-btn {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.composer-result-btn {
+  background-color: #214471;
+  color: #fff;
+  padding: 15px 50px;
+  border: none;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(33, 68, 113, 0.3);
+  transition: all 0.3s ease;
+}
+
+.composer-result-btn:hover {
+  background-color: #2c538a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(33, 68, 113, 0.4);
+}

@@ -5,6 +5,9 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all
+    all_tweets = Tweet.includes(:user).order(created_at: :desc)
+    @top_liked_tweets = all_tweets.sort_by { |t| -t.likes.count }.first(6)
+    @recent_tweets = all_tweets.reject { |t| @top_liked_tweets.include?(t) }
   end
 
   def new
@@ -51,7 +54,7 @@ class TweetsController < ApplicationController
 
   private
   def tweet_params
-    params.require(:tweet).permit(:title, :about, :genre, :video, :twitter_url)
+    params.require(:tweet).permit(:title, :about, :genre, :video, :twitter_url, :image)
   end
 
 end

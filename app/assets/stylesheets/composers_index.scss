@@ -1,0 +1,79 @@
+.startdiag {
+  font-family: "M PLUS 2", sans-serif;
+}
+
+.diagintro1 {
+  display: flex;
+  align-items: center; /* 垂直方向の中央揃え（任意） */
+  gap: 20px; /* テキストと画像の間隔 */
+  flex-wrap: wrap; /* 画面が狭いときに折り返し可能に */
+  margin-left: 50px;
+}
+
+.diagtext {
+  flex: 1; /* テキスト側が広がる */
+  min-width: 300px;
+}
+
+.diagimage img {
+  width: 300px; /* 画像サイズ調整（任意） */
+  height: auto;
+  border-radius: 8px; /* 角丸（任意） */
+  padding-right: 200px;
+}
+
+.diagintro2 {
+    padding: 50px;
+}
+
+
+.diagbutton {
+    padding: 50px;
+}
+
+
+.btnlink {
+  background: #eee;
+  border-radius: 9999px;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px auto;
+  max-width: 250px;
+  padding: 10px 25px;
+  font-family: "Noto Sans Japanese";
+  text-decoration: none;
+  color: #333;
+  line-height: 1.8;
+  transition: 0.3s ease-in-out;
+  font-weight: 500;
+}
+
+.btnlink::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  bottom: 0;
+  right: 2rem;
+  font-size: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: right 0.3s;
+  width: 6px;
+  height: 6px;
+  border-top: solid 2px currentColor;
+  border-right: solid 2px currentColor;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.btnlink:hover {
+  background: #333;
+  color: #FFF;
+}
+
+.btnlink:hover::after {
+  right: 1.4rem;
+}
+
